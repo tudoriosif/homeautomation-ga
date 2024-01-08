@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cz/gDLOoFpP3g0jDL0OMeHKiOd0Ok9XDy3ECD2gmYdZUZxL/01r2Pru2bj+7dpUYzxxuBsmftRzdNMVbRphYjQ==",
+  "success": true,
+  "projectFilePath": "E:\\WebDev\\HomeAutomationGA\\HomeAutomationGA.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tudor\\.nuget\\packages\\geneticsharp\\3.1.4\\geneticsharp.3.1.4.nupkg.sha512"
+  ],
+  "logs": []
+}
