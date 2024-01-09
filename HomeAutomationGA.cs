@@ -32,9 +32,9 @@ namespace HomeAutomationGA
         static void Main(string[] args)
         {
             // Initialize GA components
-            var selection = new EliteSelection(); // Select best ch to be parents
-            var crossover = new UniformCrossover(); // Uniformly mmixes genes of pareents ch
-            var mutation = new DisplacementMutation(); // A substring is randomly selected from chromosome, is removed, then replaced at a randomly selected position
+            var selection = new TournamentSelection(); // Select best ch to be parents
+            var crossover = new OrderBasedCrossover(); // Order-based crossover (OX2)
+            var mutation = new InsertionMutation();
 
             var chromosome = new HomeAutomationChromosome(HomeAutomationConfig.Instance.NumberOfDevices);
             var population = new Population(50, 100, chromosome);
@@ -45,19 +45,6 @@ namespace HomeAutomationGA
             
             // Run 100 times
             ga.Termination = new GenerationNumberTermination(100);
-
-            ga.GenerationRan += (sender, e) =>
-            {
-                var bestChromosome = ga.BestChromosome as HomeAutomationChromosome;
-                var bestFitness = bestChromosome.Fitness.Value;
-
-                // Display generation number and best fitness of this generation
-                Console.WriteLine($"Generation {ga.GenerationsNumber} - Best Fitness: {bestFitness}");
-
-                // Optionally, display detailed gene information
-                DisplayGeneInformation(bestChromosome);
-            };
-
 
             ga.TerminationReached += (sender, e) =>
             {
